@@ -1,20 +1,20 @@
 import React from "react";
 import classes from "./Navbar.module.css";
-import { Link } from "react-router-dom";
 import NavigationItems from "../NavigationItems/NavigationItems";
+import DrawerToggle from "../SideDrawer/DrawerToggle/DrawerToggle";
+import Logo from "../../../Logo/Logo";
 
-const Navbar = () => {
+const Navbar = ({ toggleSideDrawer }) => {
    return (
-      <nav className={classes.navbar}>
-         <div className={classes.navContainer}>
-            <h1 className={classes.logo}>
-               <Link to="/">Fitness Master</Link>
-            </h1>
-            <div className={classes.navbarItemsContainer}>
+      <div className={classes.navbarContainer}>
+         <div className={classes.navbar}>
+            <DrawerToggle toggleSideDrawer={toggleSideDrawer} />
+            <Logo size="30px" />
+            <nav className={classes.navigationContainer}>
                <NavigationItems />
-            </div>
+            </nav>
          </div>
-      </nav>
+      </div>
    );
 };
 

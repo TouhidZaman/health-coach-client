@@ -33,6 +33,34 @@
 .NavigationItem a.activeStyle {
    color: white;
    /* background-color: #0973b9; */
+   text-decoration: none;
    background-color: #444f5f8f;
    border-bottom: 4px solid goldenrod;
+}
+
+/* Adjustments For Mobile view  */
+@media screen and (max-width: 768px) {
+   .NavigationItems {
+      flex-direction: column;
+   }
+
+   .NavigationItem {
+      margin: 10px 0;
+      width: 100%;
+      display: block;
+   }
+
+   .NavigationItem a {
+      padding: 5px 10px;
+      border-bottom: 1px solid gray;
+      color: #8f5c2c;
+   }
+
+   .NavigationItem a:hover,
+   .NavigationItem a:active,
+   .NavigationItem a.activeStyle {
+      color: #374356;
+      border-bottom: 1px solid orange;
+      background: none;
+   }
 }
