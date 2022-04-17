@@ -21,9 +21,9 @@ const Login = () => {
       setValidated(true);
    };
    return (
-      <section id="sign-up" className={`container py-3 py-md-4 px-md-5`}>
+      <section id="login" className={`container py-3 py-md-4 px-md-5`}>
          <div className="shadow rounded p-4 px-md-5 col-12 col-md-8 col-lg-6 mx-auto">
-            <h2 className="mb-4 text-center">Please Login !!!</h2>
+            <h2 className="mb-4 text-center text-primary">Login Form</h2>
             <SocialAuth />
             <div className="manual-login">
                <h5 className="ps-2 mb-4 text-secondary">Login using email and password</h5>

@@ -31,11 +31,11 @@
 .NavigationItem a:hover,
 .NavigationItem a:active,
 .NavigationItem a.activeStyle {
-   color: white;
+   color: #007BFF;
    /* background-color: #0973b9; */
    text-decoration: none;
-   background-color: #444f5f8f;
-   border-bottom: 4px solid goldenrod;
+   background-color: #444f5f31;
+   border-bottom: 4px solid #007BFF;
 }
 
 /* Adjustments For Mobile view  */
@@ -53,14 +53,14 @@
    .NavigationItem a {
       padding: 5px 10px;
       border-bottom: 1px solid gray;
-      color: #8f5c2c;
+      /* color: #8f5c2c; */
    }
 
    .NavigationItem a:hover,
    .NavigationItem a:active,
    .NavigationItem a.activeStyle {
-      color: #374356;
-      border-bottom: 1px solid orange;
+      color: #007bff;
+      border-bottom: 1px solid #007BFF;
       background: none;
    }
 }

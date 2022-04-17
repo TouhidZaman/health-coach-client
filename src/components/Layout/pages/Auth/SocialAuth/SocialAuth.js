@@ -36,9 +36,10 @@ const SocialAuth = () => {
             </button>
          </div>
          <div className="py-3 mx-2 d-flex align-items-center">
-            <div className="border-bottom border-secondary w-50"></div>
-            <span className="px-2">Or</span>
-            <div className="border-bottom border-secondary w-50"></div>
+         {/* style={{borderBottom: '1px solid gray'}} */}
+            <div  className="opacity-50 border-bottom border-secondary w-50"></div>
+            <span className="px-2 text-secondary">Or</span>
+            <div className="opacity-50 border-bottom border-secondary w-50"></div>
          </div>
       </div>
    );
