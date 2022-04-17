@@ -7,11 +7,11 @@ const Layout = ({ children }) => {
    //For handling side drawer open and closed
    const [show, setShow] = useState(false);
    const sideDrawerClosedHandler = () => setShow(false);
-   const toggleSideDrawerHandler = () => setShow(prevShow => !prevShow);
-   
+   const toggleSideDrawerHandler = () => setShow((prevShow) => !prevShow);
+
    return (
       <>
-         <Navbar toggleSideDrawer={toggleSideDrawerHandler}/>
+         <Navbar toggleSideDrawer={toggleSideDrawerHandler} />
          <SideDrawer show={show} sideDrawerClosed={sideDrawerClosedHandler} />
          <main className={classes.content}>{children}</main>
       </>

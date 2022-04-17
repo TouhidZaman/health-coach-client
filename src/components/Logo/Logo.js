@@ -5,7 +5,7 @@ import classes from "./Logo.module.css";
 const Logo = ({ size }) => {
    return (
       <h1 className={classes.logo} style={{ fontSize: size }}>
-         <Link to="/">Fitness Master</Link>
+         <Link to="/">Health Coach</Link>
       </h1>
    );
 };
