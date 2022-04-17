@@ -1,7 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../../../../firebase.init";
 import SocialAuth from "../SocialAuth/SocialAuth";
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 // import classes from "./SignUp.module.css";
 
 const SignUp = () => {
@@ -9,16 +11,56 @@ const SignUp = () => {
    const emailRef = useRef("");
    const passwordRef = useRef("");
    const [validated, setValidated] = useState(false);
+   const [errorMessage, setErrorMessage] = useState("");
+   const [agreeTerms, setAgreeTerms] = useState(false);
 
-   const handleUserSignUp = (event) => {
+   //To handler signup
+   const [
+      createUserWithEmailAndPassword,
+      user,
+      loading,
+      error,
+   ] = useCreateUserWithEmailAndPassword(auth);
+
+    //To handle updating profile
+   const [
+      updateProfile, 
+      updating, 
+      updateError
+   ] = useUpdateProfile(auth);
+
+   //handling navigation
+   const navigate = useNavigate();
+   
+   useEffect(()=>{
+      if (user) {
+         console.log(user);
+         navigate("/");
+      }
+      
+   },[user, navigate])
+   
+   if(error) {
+      console.log(error.message);
+   }
+
+   const handleUserSignUp = async (event) => {
       const form = event.currentTarget;
       event.preventDefault();
+
       if (form.checkValidity() === false) {
          event.stopPropagation();
-      } else {
-         console.log("name: ", nameRef.current.value);
-         console.log("email: ", emailRef.current.value);
-         console.log("password: ", passwordRef.current.value);
+      } 
+      else {
+         const name = nameRef.current.value;
+         const email = emailRef.current.value;
+         const password = passwordRef.current.value;
+         if (password.length < 6) {
+            setErrorMessage(`Ops, password is too short`);
+            return;
+         }
+         await createUserWithEmailAndPassword(email, password);
+         await updateProfile({displayName: name});
       }
       setValidated(true);
    };
@@ -67,11 +109,13 @@ const SignUp = () => {
                         Password is required!
                      </Form.Control.Feedback>
                   </Form.Group>
+                  <p>{(loading || updating) && "Loading...."}</p>
+                  <p className="text-danger ps-2">{errorMessage || error?.code || updateError?.code}</p>
                   <Form.Group
                      className="mb-3 ps-2 d-flex align-items-center"
                      controlId="formBasicCheckbox"
                   >
-                     <Form.Check type="checkbox" label="Accept" required/>
+                     <Form.Check onClick={() => setAgreeTerms(prevAgreeTerms => !prevAgreeTerms) } type="checkbox" label="Accept" required/>
                      <span className="ps-2">
                         <Link
                            className="text-primary text-decoration-none"
@@ -85,6 +129,7 @@ const SignUp = () => {
                      variant="primary"
                      className="fw-bold rounded-pill shadow-sm d-block mx-auto w-50"
                      type="submit"
+                     disabled={!agreeTerms}
                   >
                      Sign Up
                   </Button>
