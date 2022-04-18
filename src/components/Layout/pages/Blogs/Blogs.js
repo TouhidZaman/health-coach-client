@@ -1,10 +1,11 @@
 import React from "react";
 import classes from "./Blogs.module.css";
+import Questions from "./Questions/Questions";
 
 const Blogs = () => {
    return (
       <div className={classes.blogs}>
-         <h3>This is Blogs section</h3>
+         <Questions />
       </div>
    );
 };

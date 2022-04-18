@@ -1,0 +1,17 @@
+[
+  {
+    "id": "444623dde289b96ec492dc08e34",
+    "question": "Difference between  authorization and authentication ?",
+    "answer": "Authentication is the process of verifying who someone is, whereas authorization is the process of verifying what specific applications, files, and data a user has access to. The situation is like that of an airline that needs to determine which people can come on board. Authentication needs usually user’s login details while authorization needs usually user’s login details."
+  },
+  {
+    "id": "444623dde28f8265119cf0ee94e",
+    "question": "Why are you using firebase? What other options for authentication?",
+    "answer": "Firebase concept is simple. When you build a client-side app with JavaScript or any of its frameworks, for instance, Google Firebase can turn this into a serverless app in no time. It also removes the need to manage databases yourself, as it does that for you. it also gives authentication-platforms.some others popular authentication-platforms is: 1. (STYTCH), 2. (Ory), 3. (Supabase), 4. (Okta), 5. (PingIdentity) etc."
+  },
+  {
+    "id": "444623dde2842f516000e98dcb7",
+    "question": "What other services does firebase provide other than authentication",
+    "answer": "There are many other services other than authentication which Firebase provides, Most useful of them are: Cloud Firestore. Cloud Functions. Hosting. Cloud Storage. Google Analytics. Predictions. Cloud Messaging. you can build Build truly serverless apps using firebase it also provides NoSQL database built for global apps and you can also Sync your data across devices, on or offline"
+  }
+]
