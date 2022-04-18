@@ -6,28 +6,30 @@ import {
    useSignInWithGithub,
    useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../../../firebase.init";
 
 const SocialAuth = () => {
-
    const [signInWithGoogle, googleUser, googleLoading, GoogleError] =
       useSignInWithGoogle(auth);
 
    const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
-   
+
    const [signInWithGithub, githubUser, githubLoading, githubError] =
       useSignInWithGithub(auth);
 
    //handling navigation
    const navigate = useNavigate();
+   const location = useLocation();
+   let from = location.state?.from?.pathname || "/";
 
    useEffect(() => {
       if (googleUser || fbUser || githubUser) {
          console.log(googleUser || fbUser || githubUser);
-         navigate("/");
+         // navigate("/");
+         navigate(from, { replace: true });
       }
-   }, [googleUser, fbUser, githubUser, navigate]);
+   }, [googleUser, fbUser, githubUser, from, navigate]);
 
    const handleGoogleAuth = () => signInWithGoogle();
    const handleFacebookAuth = () => signInWithFacebook();
@@ -60,7 +62,7 @@ const SocialAuth = () => {
             </button>
          </div>
          {(googleLoading || fbLoading || githubLoading) && (
-            <p className="text-center my-2">Loading....</p>
+            <p className="text-center my-2">Please wait...</p>
          )}
          {(GoogleError || fbError || githubError) && (
             <p className="text-danger my-2 text-center ps-2">{`Failed: ${

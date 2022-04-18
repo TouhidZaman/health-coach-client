@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../../../firebase.init";
 import SocialAuth from "../SocialAuth/SocialAuth";
 // import classes from "./Login.module.css";
@@ -18,16 +18,19 @@ const Login = () => {
       error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    //handling navigation
+   //handling navigation
    const navigate = useNavigate();
+   const location = useLocation();
+   let from = location.state?.from?.pathname || "/";
    
    useEffect(()=>{
       if (user) {
          console.log(user);
-         navigate("/");
+         // navigate("/");
+         navigate(from, { replace: true });
       }
       
-   },[user, navigate])
+   },[user, navigate, from])
 
    const handleUserLogin = (event) => {
       const form = event.currentTarget;
@@ -74,7 +77,7 @@ const Login = () => {
                         Password is required!
                      </Form.Control.Feedback>
                   </Form.Group>
-                  <p>{loading && "Loading...."}</p>
+                  <p className="ps-2">{loading && "Please wait..."}</p>
                   <p className="text-danger ps-2">{error?.code}</p>
                   <Form.Group
                      className="mb-3 ps-2 d-flex align-items-center"

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../../../firebase.init";
 import SocialAuth from "../SocialAuth/SocialAuth";
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import Loading from "../../../../UI/Loading/Loading";
 // import classes from "./SignUp.module.css";
 
 const SignUp = () => {
@@ -29,6 +30,7 @@ const SignUp = () => {
       updateError
    ] = useUpdateProfile(auth);
 
+   
    //handling navigation
    const navigate = useNavigate();
    
@@ -40,10 +42,6 @@ const SignUp = () => {
       
    },[user, navigate])
    
-   // if(error) {
-   //    console.log(error.message);
-   // }
-
    const handleUserSignUp = async (event) => {
       const form = event.currentTarget;
       event.preventDefault();
@@ -109,7 +107,7 @@ const SignUp = () => {
                         Password is required!
                      </Form.Control.Feedback>
                   </Form.Group>
-                  <p>{(loading || updating) && "Loading...."}</p>
+                  <p className="ps-2">{(loading || updating) && "Please wait..."}</p>
                   <p className="text-danger ps-2">{errorMessage || error?.code || updateError?.code}</p>
                   <Form.Group
                      className="mb-3 ps-2 d-flex align-items-center"
