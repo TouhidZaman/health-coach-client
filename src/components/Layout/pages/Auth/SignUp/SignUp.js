@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../../../firebase.init";
 import SocialAuth from "../SocialAuth/SocialAuth";
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-// import classes from "./SignUp.module.css";
 
 const SignUp = () => {
    const nameRef = useRef("");
@@ -58,6 +57,7 @@ const SignUp = () => {
          }
          await createUserWithEmailAndPassword(email, password);
          await updateProfile({displayName: name});
+         alert("verification email has sent");
       }
       setValidated(true);
    };

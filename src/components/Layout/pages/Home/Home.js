@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Banner from "./Banner/Banner";
 import classes from "./Home.module.css";
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
 
    return (
       <div className={classes.home}>
+         <Banner />
          <h3>This is Home page</h3>
          <button
             className="btn btn-primary mx-2"

@@ -1,0 +1,9 @@
+.banner img {
+    object-fit: cover;
+    height: calc(100vh - 64px);
+}
+
+.carousel-caption {
+    top: 50%;
+    bottom: auto;
+}
