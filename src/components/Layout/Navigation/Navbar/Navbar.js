@@ -6,15 +6,17 @@ import Logo from "../../../Logo/Logo";
 
 const Navbar = ({ toggleSideDrawer }) => {
    return (
-      <div className={classes.navbarContainer}>
-         <div className={classes.navbar}>
-            <DrawerToggle toggleSideDrawer={toggleSideDrawer} />
-            <Logo size="30px" />
-            <nav className={classes.navigationContainer}>
-               <NavigationItems />
-            </nav>
+      <header>
+         <div className={classes.navbarContainer}>
+            <div className={classes.navbar}>
+               <DrawerToggle toggleSideDrawer={toggleSideDrawer} />
+               <Logo size="30px" />
+               <nav className={classes.navigationContainer}>
+                  <NavigationItems />
+               </nav>
+            </div>
          </div>
-      </div>
+      </header>
    );
 };
 

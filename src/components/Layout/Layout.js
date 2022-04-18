@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from "./Footer/Footer";
 import classes from "./Layout.module.css";
 import Navbar from "./Navigation/Navbar/Navbar";
 import SideDrawer from "./Navigation/SideDrawer/SideDrawer";
@@ -14,6 +15,7 @@ const Layout = ({ children }) => {
          <Navbar toggleSideDrawer={toggleSideDrawerHandler} />
          <SideDrawer show={show} sideDrawerClosed={sideDrawerClosedHandler} />
          <main className={classes.content}>{children}</main>
+         <Footer />
       </>
    );
 };

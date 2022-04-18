@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import auth from "../../../../../firebase.init";
 import SocialAuth from "../SocialAuth/SocialAuth";
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import Loading from "../../../../UI/Loading/Loading";
 // import classes from "./SignUp.module.css";
 
 const SignUp = () => {
