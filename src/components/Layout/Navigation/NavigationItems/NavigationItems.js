@@ -29,7 +29,7 @@ const NavigationItems = () => {
          ))}
          {user ? (
             <li className={classes.NavigationItem}>
-               <CustomLink onClick={signOutHandler} to={"/"}>
+               <CustomLink onClick={signOutHandler} to={"/login"}>
                   {user.displayName?.split(' ')[0]} (logOut)
                </CustomLink>
             </li>

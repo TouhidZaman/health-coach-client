@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import About from "./Layout/pages/About/About";
 import Login from "./Layout/pages/Auth/Login/Login";
+import ResetPassword from "./Layout/pages/Auth/ResetPassword/ResetPassword";
 import SignUp from "./Layout/pages/Auth/SignUp/SignUp";
 import Blogs from "./Layout/pages/Blogs/Blogs";
 import Checkout from "./Layout/pages/Checkout/Checkout";
@@ -25,6 +26,7 @@ const MyRoutes = () => {
                </RequireAuth>
             }
          />
+         <Route path="/reset-password" element={<ResetPassword />} />
          <Route path="*" element={<NotFound />} />
       </Routes>
    );
