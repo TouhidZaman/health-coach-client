@@ -1,6 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../../../../firebase.init";
 import SocialAuth from "../SocialAuth/SocialAuth";
 // import classes from "./Login.module.css";
 
@@ -9,14 +11,33 @@ const Login = () => {
    const passwordRef = useRef("");
    const [validated, setValidated] = useState(false);
 
+   const [
+      signInWithEmailAndPassword,
+      user,
+      loading,
+      error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    //handling navigation
+   const navigate = useNavigate();
+   
+   useEffect(()=>{
+      if (user) {
+         console.log(user);
+         navigate("/");
+      }
+      
+   },[user, navigate])
+
    const handleUserLogin = (event) => {
       const form = event.currentTarget;
       event.preventDefault();
       if (form.checkValidity() === false) {
          event.stopPropagation();
       } else {
-         console.log("email: ", emailRef.current.value);
-         console.log("password: ", passwordRef.current.value);
+         const email = emailRef.current.value;
+         const password = passwordRef.current.value;
+         signInWithEmailAndPassword(email, password)
       }
       setValidated(true);
    };
@@ -53,6 +74,8 @@ const Login = () => {
                         Password is required!
                      </Form.Control.Feedback>
                   </Form.Group>
+                  <p>{loading && "Loading...."}</p>
+                  <p className="text-danger ps-2">{error?.code}</p>
                   <Form.Group
                      className="mb-3 ps-2 d-flex align-items-center"
                      controlId="formBasicCheckbox"

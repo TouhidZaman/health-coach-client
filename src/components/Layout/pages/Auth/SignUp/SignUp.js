@@ -40,9 +40,9 @@ const SignUp = () => {
       
    },[user, navigate])
    
-   if(error) {
-      console.log(error.message);
-   }
+   // if(error) {
+   //    console.log(error.message);
+   // }
 
    const handleUserSignUp = async (event) => {
       const form = event.currentTarget;
