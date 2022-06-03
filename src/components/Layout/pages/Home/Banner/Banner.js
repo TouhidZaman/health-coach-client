@@ -14,7 +14,7 @@ const Banner = () => {
                <img className="d-block w-100" src={banner1} alt="First slide" />
                <Carousel.Caption className="carousel-caption  d-flex justify-content-center">
                   <div className="col-12 col-lg-8 mb-4">
-                     <h1 className="mb-3">Wealth and Fit With Coach. Contact me today and get your best gym trainer</h1>
+                     <h1 className="mb-3">Wealth and fit with coach. Get your best gym trainer today</h1>
                      
                      <Link
                         to="/"

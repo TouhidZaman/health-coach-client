@@ -11,12 +11,12 @@ const About = () => {
          </div>
          <div className="col-12 col-md-9 mx-auto text-center ">
             <h2 className="my-2 text-primary">Muhammad Touhiduzzaman</h2>
-            <p className="my-2 d-flex align-items-center justify-content-center">
+            <p className="mt-2 mb-3 d-flex align-items-center justify-content-center">
                <FontAwesomeIcon icon={faCode} className="pe-2" />
                <small>Full stack web developer</small>
                <FontAwesomeIcon icon={faCode} className="ps-2" />
             </p>
-            <p>
+            <p className="col-11 mx-auto">
                Hello there ! Myself Muhammad Touhiduzzaman. I'm a junior level full stack
                web developer. I'm Currently working with javascript based technologies like react ,
                firebase , express JS, MongoDB etc. Recently I

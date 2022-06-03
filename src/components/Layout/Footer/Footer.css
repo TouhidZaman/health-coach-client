@@ -3,6 +3,7 @@ footer {
 }
 footer .social ul {
    list-style: none;
+   padding: 0;
 }
 footer .social ul li a {
    font-size: 26px;

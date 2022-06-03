@@ -3,18 +3,21 @@
       "id": "623dde28f8265119cf0ee94e",
       "title": "Analysis",
       "profile": "http://alex-stone.themerex.net/wp-content/uploads/2017/05/image-27-468x364.jpg",
-      "message": "Сertified personal trainer identify your specific fitness needs and create a plan for you to efficiently and effectively"
+      "message": "Сertified personal trainer identify your specific fitness needs and create a plan for you to efficiently and effectively",
+      "price": 250
    },
    {
       "id": "623dde289b96ec492dc08e34",
       "title": "Customized Planning",
       "profile": "http://alex-stone.themerex.net/wp-content/uploads/2017/05/image-26-468x364.jpg",
-      "message": "Customized training plans are tailored to meet your specific goals, while maximizing results and minimizing injuries"
+      "message": "Customized training plans are tailored to meet your specific goals, while maximizing results and minimizing injuries",
+      "price": 350
    },
    {
       "id": "623dde2842f516000e98dcb7",
       "title": "Organization",
       "profile": "http://alex-stone.themerex.net/wp-content/uploads/2017/05/image-25-468x364.jpg",
-      "message": "Each workout is organized and planned prior to your appointment, so that when you arrive at the studio you can…"
+      "message": "Each workout is organized and planned prior to your appointment, so that when you arrive at the studio you can…",
+      "price": 400
    }
 ]
